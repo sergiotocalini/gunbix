@@ -1,0 +1,3 @@
+CACHE_DIR="/tmp/gunbix"
+CACHE_TTL=1
+INIT_SCRIPT="/etc/init.d/gunicorn"
