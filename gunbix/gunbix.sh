@@ -125,6 +125,11 @@ get_service() {
     elif [[ ${property} == 'status' ]]; then
 	output=`sudo "${INIT_SCRIPT}" status "${resource}"`
 	res="${?}"
+	if [[ ${res} == 0 ]]; then
+	    res=1
+	else
+	    res=0
+	fi
     fi
     echo "${res:-0}"
     return 0
