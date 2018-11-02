@@ -68,7 +68,7 @@ refresh_cache() {
     echo "${file}"
 }
 
-get_applications() {
+get_projects() {
     resource=${1}
     for configfile in $(get_configfile); do
 	jq -r 'select(.monitoring.enable=="yes")|"\(.id)|\(.name)|\(.desc)|\(.version)|"' \
@@ -165,8 +165,8 @@ while getopts "s::a:s:uphvj:" OPTION; do
 done
 
 
-if [[ ${SECTION} == 'applications' ]]; then
-    rval=$(get_applications ${ARGS[*]})
+if [[ ${SECTION} == 'projects' ]]; then
+    rval=$( get_projects ${ARGS[*]} )
     rcode="${?}"
 elif [[ ${SECTION} == 'service' ]]; then
     rval=$( get_service ${ARGS[*]} )
