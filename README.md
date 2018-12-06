@@ -25,7 +25,7 @@ __**Red Hat**__
 ```
 
 # Deploy
-Please the script requires to have already installed the springboot init.d script. Follow the README for the other [project](https://github.com/sergiotocalini/stuffs/tree/master/gunicorn).
+Please the script requires to have already installed the gunicorn init.d script. Follow the README for the other [project](https://github.com/sergiotocalini/stuffs/tree/master/gunicorn).
 
 ## Zabbix
 Zabbix user has to have sudo privileges.
