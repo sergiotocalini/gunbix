@@ -71,7 +71,7 @@ refresh_cache() {
 get_projects() {
     resource=${1}
     for configfile in $(get_configfile); do
-	jq -r 'select(.monitoring.enable=="yes")|"\(.id)|\(.name)|\(.desc)|\(.version)|"' \
+	jq -r "select(.monitoring.enable==\"yes\")|\"\(.id)|\(.name)|\(.desc)|\(.version)|\(.monitoring.tags|join(\":\"))|\"" \
 	   ${configfile} 2>/dev/null
     done
     return 0
