@@ -72,8 +72,8 @@ get_projects() {
     resource=${1}
     for configfile in $(get_configfile); do
 	tags=`jq -r ".monitoring.tags[]" ${configfile} 2>/dev/null | sed 's/null//g' | xargs printf '%s:'`
-	output=`jq -r "select(.monitoring.enable==\"yes\")|\"\(.id)|\(.name)|\(.desc)|\(.version)|${tags%?}|\"" \
-	   	   ${configfile} 2>/dev/null`
+	jq -r "select(.monitoring.enable==\"yes\")|\"\(.id)|\(.name)|\(.desc)|\(.version)|${tags%?}|\"" \
+	   ${configfile} 2>/dev/null
 	
     done
     return 0
